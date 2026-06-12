@@ -1,3 +1,3 @@
-const int ELEVATOR_COUNT = 1;
+const int ELEVATOR_COUNT = 2;
 const int WINDOW_WIDTH = ELEVATOR_COUNT <= 2 ? 450 : ELEVATOR_COUNT * 150;
 const int WINDOW_HEIGHT = 300;
