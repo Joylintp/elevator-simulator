@@ -1,0 +1,1 @@
+g++ .\src\*.cpp .\imgui\*.cpp .\imgui\backends\imgui_impl_glfw.cpp .\imgui\backends\imgui_impl_opengl3.cpp -I .\imgui -I .\imgui\backends\ -I .\glfw\include\ -L .\glfw\lib-mingw-w64 -lglfw3 -lopengl32 -lgdi32 -o .\ElevatorSimulator.exe
