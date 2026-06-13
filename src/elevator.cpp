@@ -88,17 +88,6 @@ void Elevator::operate(void) {
             std::this_thread::sleep_for(std::chrono::seconds(1));
             std::unique_lock lock(mtx);
 
-            std::cout << "dir: " << direction << '\n';
-            std::cout << "flr: " << current_floor << '\n';
-            for (int i = 0; i < 3; i++) {
-                std::cout << "des" << i << ": ";
-                for (int x : destinations[i]) {
-                    std::cout << x << ' ';
-                }
-                std::cout << '\n';
-            }
-            std::cout << '\n';
-
             if (destinations[0].count(current_floor)) {
                 destinations[0].erase(current_floor);
             }
@@ -113,18 +102,6 @@ void Elevator::operate(void) {
                 }
             }
             current_floor += direction;
-
-            std::cout << "dir: " << direction << '\n';
-            std::cout << "flr: " << current_floor << '\n';
-            for (int i = 0; i < 3; i++) {
-                std::cout << "des" << i << ": ";
-                for (int x : destinations[i]) {
-                    std::cout << x << ' ';
-                }
-                std::cout << '\n';
-            }
-            std::cout << '\n';
-            std::cout << "---\n";
 
             lock.unlock();
         }
