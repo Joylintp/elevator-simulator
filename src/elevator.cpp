@@ -30,50 +30,26 @@ void Elevator::move(int current, int floor) {
             direction = (current < floor ? 1 : -1);
             destinations[0].insert(current);
             destinations[0].insert(floor);
-        } else if (current < current_floor) {
-            direction = -1;
-            destinations[0].insert(current);
-            if (floor < current) {
-                destinations[0].insert(floor);
-            } else {
-                destinations[1].insert(floor);
-            }
         } else {
-            direction = 1;
+            direction = (current < current_floor ? -1 : 1);
             destinations[0].insert(current);
-            if (floor > current) {
+            if ((floor < current) == (current < current_floor)) {
                 destinations[0].insert(floor);
             } else {
                 destinations[1].insert(floor);
-            }
-        }
-    } else if (direction == -1) {
-        if (current_floor >= current) {
-            destinations[0].insert(current);
-            if (current > floor) {
-                destinations[0].insert(floor);
-            } else {
-                destinations[1].insert(floor);
-            }
-        } else {
-            destinations[1].insert(current);
-            if (current < floor) {
-                destinations[1].insert(floor);
-            } else {
-                destinations[2].insert(floor);
             }
         }
     } else {
-        if (current_floor <= current) {
+        if (current == current_floor || (direction == -1) == (current < current_floor)) {
             destinations[0].insert(current);
-            if (current < floor) {
+            if ((direction == -1) == (floor < current)) {
                 destinations[0].insert(floor);
             } else {
                 destinations[1].insert(floor);
             }
         } else {
             destinations[1].insert(current);
-            if (current > floor) {
+            if ((direction == -1) == (current < floor)) {
                 destinations[1].insert(floor);
             } else {
                 destinations[2].insert(floor);
